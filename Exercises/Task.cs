@@ -44,41 +44,28 @@ namespace Exercises
             reports = new List<Report>();
             this.report_frequency = report_frequency;
         }
-        /// <summary>
-        /// Меняет статус на начавшийся
-        /// </summary>
-        /// <param name="executor"></param>
+       
         public void StartTask(Person executor)
         {
             status = TaskStatus.InProgress;
             this.executor = executor;
         }
-        /// <summary>
-        /// Меняет статус на тестируемый
-        /// </summary>
+       
         public void TestTask() 
         {
             status = TaskStatus.Test;
         }
-        /// <summary>
-        /// Меняет статус на закончившийся
-        /// </summary>
+      
         public void ClosedTask()
         {
             status = TaskStatus.Completed;
         }
-        /// <summary>
-        /// Добавляет отчет в список
-        /// </summary>
-        /// <param name="report"></param>
+
         public void AddReport(Report report)
         {
             reports.Add(report);
         }
-        /// <summary>
-        /// Передает задание другому
-        /// </summary>
-        /// <param name="executor"></param>
+   
         public void DelegateTask(Person executor)
         {
             if (status == TaskStatus.Appointed)
@@ -86,18 +73,14 @@ namespace Exercises
                 this.executor = executor;
             }
         }
-        /// <summary>
-        /// Отказывется от задания
-        /// </summary>
+        
         public void RejectTask()
         {
             executor = null;
             status = TaskStatus.Appointed;
         }
 
-        /// <summary>
-        /// Генерирует переодичные отчеты
-        /// </summary>
+   
         public void GenerateReports()
         {
             TestTask();
